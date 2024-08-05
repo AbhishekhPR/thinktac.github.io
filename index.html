@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <button id="addEmployeeBtn" class="btn">Add Employee</button>
+
+        <div id="empDetailDialog" class="dialog">
+            <div class="dialog-content">
+                <span class="close-btn" id="closeDialogBtn">&times;</span>
+                <h2>Employee Details</h2>
+                <form id="employeeForm">
+                    <input type="hidden" id="empId" name="empId">
+                    <div class="form-group">
+                        <label for="empName">Name:</label>
+                        <input type="text" id="empName" name="empName" required pattern="[a-zA-Z\s]+" title="Name should contain only letters and spaces">
+                    </div>
+                    <div class="form-group">
+                        <label for="empEmail">Email:</label>
+                        <input type="email" id="empEmail" name="empEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empPhone">Phone Number:</label>
+                        <input type="tel" id="empPhone" name="empPhone" required pattern="\d{10}" title="Phone number should be 10 digits">
+                    </div>
+                    <button type="submit" class="btn">Save</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="employeeTable">
+            <h2>Employee List</h2>
+            <input type="text" id="searchBox" placeholder="Search by name, email or phone" class="search-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody">
+                    <!-- Example data -->
+                    <tr data-id="1">
+                        <td>1</td>
+                        <td>Abhishekh</td>
+                        <td>abhishekhravikumar@gmail.com</td>
+                        <td>1234567890</td>
+                        <td class="actions">
+                            <i class="fa fa-edit" onclick="editEmployee(1)"></i>
+                            <i class="fa fa-trash" onclick="deleteEmployee(1)"></i>
+                        </td>
+                    </tr>
+                    <tr data-id="2">
+                        <td>2</td>
+                        <td>ThinkTac</td>
+                        <td>ThinkTac@gmail.com</td>
+                        <td>0987654321</td>
+                        <td class="actions">
+                            <i class="fa fa-edit" onclick="editEmployee(2)"></i>
+                            <i class="fa fa-trash" onclick="deleteEmployee(2)"></i>
+                        </td>
+                    </tr>
+                    <tr data-id="3">
+                        <td>3</td>
+                        <td>xyz</td>
+                        <td>xyz@gmail.com</td>
+                        <td>9999999999</td>
+                        <td class="actions">
+                            <i class="fa fa-edit" onclick="editEmployee(3)"></i>
+                            <i class="fa fa-trash" onclick="deleteEmployee(3)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
